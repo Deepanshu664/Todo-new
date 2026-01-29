@@ -31,6 +31,7 @@ function renderTasks(){
     }
 
 addButton.addEventListener('click', function(e){
+    e.preventDefault();
     if(input.value.trim() !== ''){
         tasks.push(input.value);
         input.value = '';
