@@ -3,7 +3,8 @@ const addButton = document.querySelector('.btn-add');
 const tasksBox = document.querySelector('.tasks-box');
 const remainsTask = document.querySelector('.remain-tasks');
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+renderTasks();
 
 function renderTasks(){
     tasksBox.innerHTML = '';
@@ -23,6 +24,7 @@ function renderTasks(){
                 tasksBox.insertAdjacentHTML('afterbegin',html)
                 
     })
+        localStorage.setItem('tasks',JSON.stringify(tasks));
         updateRemainsTasks();
     };
 
